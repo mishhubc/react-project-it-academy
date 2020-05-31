@@ -1,0 +1,20 @@
+1. npm install -g create-react-app
+2. npm install --save-dev prettier
+3. install VSCode plugin
+https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
+4. create-react-app name_of_project
+5. enter name_of_project
+6.  create ".prettierrc" file inside of project folder
+{
+  "trailingComma": "es5",
+  "tabWidth": 2,
+  "semi": true,
+  "singleQuote": true,
+  "printWidth": 100,
+  "jsxSingleQuote": true,
+  "bracketSpacing": true,
+  "jsxBracketSameLine": false,
+  "arrowParens": "always"
+}
+
+7. If code is not fixed on save then go to VSC preferences -> look for formatter -> set esbenp.prettier-vscode
