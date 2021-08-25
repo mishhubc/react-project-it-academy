@@ -6,7 +6,7 @@ export const ToDoItem = ({
   onRemove,
   checked,
   onClick,
-  key,
+  
 }) => {
   let itemClassName = 'todo-list__item';
 
@@ -15,7 +15,7 @@ export const ToDoItem = ({
   }
 
   return (
-    <li className={itemClassName} onClick={onClick} key={key}>
+    <li className={itemClassName} onClick={onClick}>
       {value}
       <button onClick={onRemove} className={'btn__remove'}>
         {'remove'}

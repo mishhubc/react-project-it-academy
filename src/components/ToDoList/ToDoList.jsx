@@ -15,16 +15,15 @@ export class ToDoList extends Component {
     super(props);
 
     this.state = {
-      value: 'type your task out there',
+      value: '',
+      placeholder:'Please type a todo task', 
       items: [],
       isToogleOn: false,
     };
   }
 
   handleAddClassList = (e) => {
-    this.setState((state) => ({
-      isToogleOn: !state.isToogleOn,
-    }));
+    e.target.classList.toggle('list-item--checked');
   };
 
   handleInputChange = (event) => {
@@ -34,7 +33,6 @@ export class ToDoList extends Component {
   };
 
   handleAddButtonClick = () => {
-    console.log('button has been clicked');
     const { value, items } = this.state;
     const newItems = [...items, value];
 
@@ -43,6 +41,11 @@ export class ToDoList extends Component {
       items: newItems,
     });
   };
+  handleKeyPress = (event) => {
+    if(event.key === 'Enter'){
+      this.handleAddButtonClick()
+    }
+  }
 
   handleRemoveButtonClick = (event) => {
     const itemValue = event.target.previousSibling.wholeText;
@@ -53,8 +56,8 @@ export class ToDoList extends Component {
       items: newItems,
     });
 
-    console.log('ITEM VAL', itemValue);
   };
+
 
   handleRemoveAll = () => {
     this.setState({
@@ -73,6 +76,8 @@ export class ToDoList extends Component {
             className={'todo-list__input'}
             onChange={this.handleInputChange}
             value={value}
+            placeholder={this.state.placeholder}
+            onKeyPress={this.handleKeyPress}
           />
           <button
             className={'todo-list__add'}
